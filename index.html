@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Storm Search</title>
 </head>
 
@@ -13,8 +16,8 @@
         <nav>
             <div class="row #37474f blue-grey darken-3">
                 <div>
-                    <a href="#" class="brand-logo  z-depth-3 cols-12"><i
-                            class="material-icons">explore</i>FilmSearch</a>
+                    <a href="#" id="brand-logo" class="brand-logo z-depth-3 cols-12"><i
+                            class="material-icons explore-icon" style="font-size: 45px">explore</i>StormSearch</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li class="tab"><a class="waves-effect waves-light btn-small" href="#search">Search</a></li>
                         <li class="tab"><a class="waves-effect waves-light btn-small" href="#home">Home</a></li>
@@ -27,26 +30,34 @@
                 <div class="search-wrapper col m4 l8">
                     <form>
                         <div class="input-field">
-                            <input id="search" type="search" clas="center-aligned" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <input id="search" type="search" class="center-aligned" placeholder="Search movies, shows" required>
+                            <i id="search-glass" class="material-icons">search</i>
+                            <!-- <label class="label-icon" for="search"><i class="material-icons">search</i></label> -->
                         </div>
                     </form>
                 </div>
             </div>
         </nav>
-        <!-- <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Search Here!</label>
-                    </div>
-                </div>
-            </form>
-        </div> -->
     </header>
     <main>
+
     </main>
+
+    <div class="row">
+
+        <div class="col s3">
+            <!-- Grey navigation panel -->
+
+        </div>
+
+        <div class="col s9">
+            <!-- Teal page content  -->
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
