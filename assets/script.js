@@ -1,16 +1,28 @@
+// var apiKey = "5fe1dca8";
+// var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
 
-// var apiKey = "5fe1dca8"
-// var apiUrl = "http://www.omdbapi.com/?apikey="+ apiKey
+// function searchMovie(title) {
+//     fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//             console.log(data);
+//         })
+//         .catch(function (error) {
+//             console.log("Error:", error);
+//         });
+// }
 
-// console.log("")
+// // Example usage:
+// searchMovie("Inception");
 
-// fetch(apiUrl)
-// .then(response => response.json())
-// .then(data => {console.log(data)})
+    var apiKey = "5fe1dca8";
+    var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
+    var movieDetailsElement = document.getElementById("movieDetails");
 
-
-var apiKey = "5fe1dca8";
-var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
+    function searchMovie() {
+      var title = document.getElementById("movieTitle").value;
 
 fetch(apiUrl)
   .then(function (response) {
@@ -22,4 +34,3 @@ fetch(apiUrl)
   .catch(function (error) {
     console.log("Error:", error);
   });
-
