@@ -10,33 +10,51 @@
 </head>
 
 <body>
-  <header>
-    <!-- // copied and pasted from materialize css website and modified alittle    -->
-    <nav>
-      <div class="nav-wrapper #efebe9 brown lighten-5">
-        <a href="#" class="brand-logo">FilmSearch</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html">New</a></li>
-          <li><a href="badges.html">Old</a></li>
-          <li><a href="collapsible.html">Genre's</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Search Here!</label>
-          </div>
-        </div>
-      </form>
-    </div>
-  </header>
-  <main>
-    <h3>Summ random shizz</h3>
-    <P>It's ya boi the p tag bruv</P>
-  </main>
+  <input type="text" id="movieTitle" placeholder="Enter movie title">
+  <button onclick="searchMovie()">Search</button>
+  <div id="movieDetails"></div>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="row #37474f blue-grey darken-3">
+                <div>
+                    <a href="#" class="brand-logo  z-depth-3 cols-12"><i
+                            class="material-icons">explore</i>FilmSearch</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li class="tab"><a class="waves-effect waves-light btn-small" href="#search">Search</a></li>
+                        <li class="tab"><a class="waves-effect waves-light btn-small" href="#home">Home</a></li>
+                        <li class="tab"><a class="waves-effect waves-light btn-small" href="#recent">Recently Added</a>
+                        </li>
+                        <li class="tab"><a class="waves-effect waves-light btn-small" href="#movies">Movies</a></li>
+                        <li class="tab"><a class="waves-effect waves-light btn-small" href="#shows">TV Shows</a></li>
+                    </ul>
+                </div>
+                <div class="search-wrapper col m4 l8">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" clas="center-aligned" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Search Here!</label>
+                    </div>
+                </div>
+            </form>
+        </div> -->
+    </header>
+    <main>
+    </main>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>
