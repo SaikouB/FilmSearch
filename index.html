@@ -1,15 +1,23 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Movie Details</title>
-</head>
-<body>
   <input type="text" id="movieTitle" placeholder="Enter movie title">
   <button onclick="searchMovie()">Search</button>
   <div id="movieDetails"></div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <a href="http://www.omdbapi.com/?apikey=5fe1dca8"></a>
+    <a href=">https://api.watchmode.com/datasets/title_id_map.csv/v1/networks"></a>
+
+    <title>Storm Search</title>
 </head>
 
 <body>
+
+  <input type="text" id="movieTitle" placeholder="Enter movie title">
+  <button onclick="searchMovie()">Search</button>
+  <div id="networkData"></div>
+  
     <header>
         <nav>
             <div class="row #37474f blue-grey darken-3">
@@ -35,7 +43,7 @@
                 </div>
             </div>
         </nav>
-        <!-- <div class="row">
+         <div class="row">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
@@ -45,10 +53,28 @@
                 </div>
             </form>
         </div> -->
-    </header>
+    <!-- </header>
     <main>
     </main>
     <script src="assets/script.js"></script>
 </body>
 
+</html> --> 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+  <input type="text" id="movieTitle" placeholder="Enter movie title">
+  <button onclick="searchMovie()">Search</button>
+  <div id="movieDetails"></div>
+  <div id="networkData"></div>
+
+  <script src="assets/script.js"></script>
+</body>
 </html>
