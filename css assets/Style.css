@@ -4,6 +4,6 @@
 
 
 .card {
-    width:50%;
-    height: 40%;
+    width:max-content;
+ 
 }
