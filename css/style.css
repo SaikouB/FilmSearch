@@ -1,0 +1,18 @@
+
+ul {
+    display: flex;
+}
+body {
+    background: #080808;
+    color: #fff;
+
+}
+
+
+.card .card-image {
+    width: 100%;
+    padding: 10%;
+    
+}
+
+

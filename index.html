@@ -2,76 +2,128 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="css assets/Style.css">
-  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-  <title>Film Search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Storm Search</title>
 </head>
+<header class="row">
+    <nav>
+        <div class="row #212121 grey darken-4">
+            <div>
+                <a href="#" class="brand-logo  z-depth-3 cols-12"><i class="material-icons">explore</i>FilmSearch</a>
+                <ul id="nav-mobile" class="right">
+                    <li class="tab"><a class="waves-effect waves-light btn-small #424242 grey darken-3"
+                            href="#search">Search</a></li>
+                    <li class="tab"><a class="waves-effect waves-light btn-small #424242 grey darken-3"
+                            href="#home">Home</a></li>
+                    <li class="tab"><a class="waves-effect waves-light btn-small #424242 grey darken-3"
+                            href="#recent">Recently Added</a>
+                    </li>
+                    <li class="tab"><a class="waves-effect waves-light btn-small #424242 grey darken-3"
+                            href="#movies">Movies</a></li>
+                    <li class="tab"><a class="waves-effect waves-light btn-small #424242 grey darken-3" href="#shows">TV
+                            Shows</a></li>
+                </ul>
+            </div>
+            <div class="search-wrapper col m4 l8">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" clas="center-aligned" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </nav>
+  
+</header>
 
 <body>
-  <header>
-    <!-- // copied and pasted from materialize css website and modified alittle    -->
-    <nav>
-      <div class="nav-wrapper #efebe9 brown lighten-5">
-        <a href="#" class="brand-logo"><span class=" blue-text text-darken-2">FilmSearch</span></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html #546e7a blue-grey darken-1"><span class="blue-text text-darken-2">New</span></a></li>
-          <li><a href="badges.html"><span class="blue-text text-darken-2">Old</span></a></li>
-          <li><a href="collapsible.html"><span class="blue-text text-darken-2">Genre's</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s3">
-            <textarea id="movieTitle" class="materialize-textarea"></textarea>
-            <label for="movieTitle"></label>
-            <button id="searchButton">Search</button>
-          </div>
+    <main class="row">
+        <div class="row ">
+            <div class="col s12 m6">
+                <div class="card medium #424242 grey darken-3">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="images/office.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Card Title<i
+                                class="material-icons right">more_vert</i></span>
+                        <p><a href="#">This is a link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i
+                                class="material-icons right">close</i></span>
+                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </form>
-    </div>
-  </header>
-  <main class="row">
- <p id="movieDetails"></p>
- <div id="streamDetails"></div>
- 
 
-    <div class="row">
-      <div class="col s6 m6">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
-          </div>
+        <div class="row ">
+            <div class="col s12 m6">
+                <div class="card #424242 grey darken-3">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="images/office.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Card Title<i
+                                class="material-icons right">more_vert</i></span>
+                        <p><a href="#">This is a link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i
+                                class="material-icons right">close</i></span>
+                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s6 m6">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
-          </div>
+        <div class="row ">
+            <div class="col s12 m6">
+                <div class="card #424242 grey darken-3">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="images/office.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Card Title<i
+                                class="material-icons right">more_vert</i></span>
+                        <p><a href="#">This is a link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i
+                                class="material-icons right">close</i></span>
+                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg">
+                        <span class="card-title">Card Title</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                                class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient
+                            because I require little markup to use effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
