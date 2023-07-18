@@ -21,19 +21,26 @@
 
 
 var imdb;
+var streams;
 var watchKey = "yPRb9TOOBBa3KTNLBZKtGukLish14uukiiqOBfT1";
 var apiKey = "5fe1dca8";
 var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
 var movieDetailsElement = document.getElementById("movieDetails");
+var searchButEl = $('#searchButton');
+var streamDetailsEl = $('#streamDetails');
+console.log("🚀 ~ file: script.js:31 ~ streamDetailsEl:", streamDetailsEl)
 
-function searchMovie() {
+function searchMovie(event) {
+  event.preventDefault();
   var title = document.getElementById("movieTitle").value;
-
+console.log('hi');
   fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+      console.log("🚀 ~ file: script.js:39 ~ data:", data)
+      
       displayMovieDetails(data);
     })
     .catch(function (error) {
@@ -41,10 +48,20 @@ function searchMovie() {
     });
 }
 
-function displayMovieDetails(movie) {
+async function displayMovieDetails(movie) {
   if (movie.Response === "True") {
-
+    
+    // WACTHMODE 
     imdb = movie.imdbID;
+    console.log("🚀 ~ file: script.js:52 ~ displayMovieDetails ~ imdb:", imdb)
+    let url = 'https://api.watchmode.com/v1/title/' + imdb + '/sources/?apiKey=' + watchKey;
+    await fetch(url, { method: 'Get' })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        streams = data;
+      });
+
     var html = `
           <h2>${movie.Title}</h2>
           <p>Year: ${movie.Year}</p>
@@ -52,18 +69,26 @@ function displayMovieDetails(movie) {
           <p>Plot: ${movie.Plot}</p>
           `;
     movieDetailsElement.innerHTML = html;
-    // WACTHMODE 
-    let url = 'https://api.watchmode.com/v1/title/' + imdb + '/sources/?apiKey=' + watchKeyey;
-    fetch(url, { method: 'Get' })
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-      });
 
+      for (var i = 0; i < streams.length; i++){
+        if(streams[i].format === "HD"){
+        var linkEl = $("<a>");
+        linkEl.attr('href', streams[i].web_url);
+        linkEl.text("Streamer: " + streams[i].name + "  Cost " + streams[i].price + "   |||   ");
+        console.log("🚀 ~ file: script.js:75 ~ displayMovieDetails ~ linkEl:", linkEl);
+        streamDetailsEl.append(linkEl);
+        
+      }}
 
   } else {
     movieDetailsElement.innerHTML = `<p>${movie.Error}</p>`;
+
+
   }
 }
 
+// searchButEl.addEventListener('click', function(){
+//   console.log('hi2');
+// })
 
+searchButEl.click(searchMovie);
