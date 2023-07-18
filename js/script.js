@@ -1,25 +1,3 @@
-// var apiKey = "5fe1dca8";
-// var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
-
-// function searchMovie(title) {
-//     fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//         })
-//         .catch(function (error) {
-//             console.log("Error:", error);
-//         });
-// }
-
-// // Example usage:
-// searchMovie("Inception");
-
-
-
-
 var imdb;
 var streams;
 var watchKey = "yPRb9TOOBBa3KTNLBZKtGukLish14uukiiqOBfT1";
@@ -82,7 +60,7 @@ async function displayMovieDetails(movie) {
 
     for (var i = 0; i < streams.length; i++) {
       if (streams[i].format === "HD") {
-        var linkEl = $("<a>");
+        var linkEl = $("<a>", "<br>");
         linkEl.attr('href', streams[i].web_url);
         linkEl.text("Streamer: " + streams[i].name + "  Cost " + streams[i].price + "   |||   ");
         console.log("🚀 ~ file: script.js:75 ~ displayMovieDetails ~ linkEl:", linkEl);
@@ -96,9 +74,5 @@ async function displayMovieDetails(movie) {
 
   }
 }
-
-// searchButEl.addEventListener('click', function(){
-//   console.log('hi2');
-// })
 
 searchButEl.click(searchMovie);
