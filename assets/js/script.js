@@ -19,6 +19,7 @@ function searchMovie(event) {
     .then(function (data) {
       console.log("🚀 ~ file: script.js:39 ~ data:", data)
 
+
       displayMovieDetails(data);
     })
     .catch(function (error) {
@@ -67,12 +68,38 @@ async function displayMovieDetails(movie) {
         streamDetailsEl.append(linkEl);
       }
     }
-
+    makeButtons(movie.Title)
   } else {
     movieDetailsElement.innerHTML = `<p>${movie.Error}</p>`;
 
 
   }
 }
+function makeButtons(movie) {
+  let movieHistory = JSON.parse(localStorage.getItem("movie-history")) || []
+  if (movieHistory.includes(movie) || !movie) {
+    return
+  }
+  movieHistory.push(movie)
+  let list = document.createElement("ul")
+  for (var i = 0; i < movieHistory.length; i++) {
+    // console.log(movieHistory[i])
+    let li = document.createElement("li")
+    let button = document.createElement("button")
+    button.textContent = movieHistory[i]
+    li.append(button)
+    list.append(li)
+  }
+  console.log(list)
+  let div = document.getElementById("ul")
+  div.append(list)
+  // element.appendChild(list)
+  localStorage.setItem("movie-history", JSON.stringify(movieHistory))
 
+
+}
+
+makeButtons()
 searchButEl.click(searchMovie);
+
+
