@@ -82,13 +82,17 @@ function makeButtons(movie) {
   }
   movieHistory.push(movie)
   let list = document.createElement("ul")
-  for(var i = 0; i < movieHistory.length; i ++){
+  for (var i = 0; i < movieHistory.length; i++) {
     // console.log(movieHistory[i])
+    let li = document.createElement("li")
     let button = document.createElement("button")
-    button.textContent = movieHistory[i] 
-    list.appendChild(button)
+    button.textContent = movieHistory[i]
+    li.append(button)
+    list.append(li)
   }
   console.log(list)
+  let div = document.getElementById("ul")
+  div.append(list)
   // element.appendChild(list)
   localStorage.setItem("movie-history", JSON.stringify(movieHistory))
 
