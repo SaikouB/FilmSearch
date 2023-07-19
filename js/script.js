@@ -10,6 +10,7 @@ console.log("🚀 ~ file: script.js:31 ~ streamDetailsEl:", streamDetailsEl)
 
 function searchMovie(event) {
   event.preventDefault();
+  movieDetailsElement.innerHTML = "";
   var title = document.getElementById("movieTitle").value;
   console.log('hi');
   fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
@@ -48,24 +49,28 @@ async function displayMovieDetails(movie) {
         trailer = dataTr;
       });
 
+      
+
     var html = `
           <h2>${movie.Title}</h2>
           <img src="${movie.Poster}" alt="${movie.Title} Poster">
           <p>Year: ${movie.Year}</p>
           <p>Director: ${movie.Director}</p>
           <p>Plot: ${movie.Plot}</p>
-          <p>Trailer: ${trailer.trailer}</p>
+          <a href=${trailer.trailer} style="font-size: 150%; color: #ffab40;">WATCH TRAILER</a>
           `;
     movieDetailsElement.innerHTML = html;
+    streamDetailsEl.text("");
 
     for (var i = 0; i < streams.length; i++) {
       if (streams[i].format === "HD") {
+        if (streams[i].type === "rent") {
         var linkEl = $("<a>", "<br>");
         linkEl.attr('href', streams[i].web_url);
-        linkEl.text("Streamer: " + streams[i].name + "  Cost " + streams[i].price + "   |||   ");
+        linkEl.text("| Streamer: " + streams[i].name + ",     Cost $" + streams[i].price + " |     ");
         console.log("🚀 ~ file: script.js:75 ~ displayMovieDetails ~ linkEl:", linkEl);
         streamDetailsEl.append(linkEl);
-      }
+      }}
     }
 
   } else {
