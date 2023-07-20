@@ -1,11 +1,12 @@
 var imdb;
 var streams;
-var watchKey = "yPRb9TOOBBa3KTNLBZKtGukLish14uukiiqOBfT1";
+var watchKey = "TNJADaKq3XlXMkATsndQthQewGSmwIfLUdLVrqez";
 var apiKey = "5fe1dca8";
 var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
 var movieDetailsElement = document.getElementById("movieDetails");
 var searchButEl = $('#searchButton');
 var streamDetailsEl = $('#streamDetails');
+var clearBtnEl = $("#clear-btn");
 console.log("🚀 ~ file: script.js:31 ~ streamDetailsEl:", streamDetailsEl)
 
 function searchMovie(event) {
@@ -106,5 +107,9 @@ function makeButtons(movie) {
 
 makeButtons()
 searchButEl.click(searchMovie);
+clearBtnEl.click(function () {
+  localStorage.clear()
+  location.reload()
+})
 
 
