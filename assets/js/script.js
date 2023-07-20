@@ -1,6 +1,7 @@
 var imdb;
 var streams;
-var watchKey = "yPRb9TOOBBa3KTNLBZKtGukLish14uukiiqOBfT1";
+var a;
+var watchKey = "TNJADaKq3XlXMkATsndQthQewGSmwIfLUdLVrqez";
 var apiKey = "5fe1dca8";
 var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
 var movieDetailsElement = document.getElementById("movieDetails");
@@ -11,7 +12,6 @@ console.log("🚀 ~ file: script.js:31 ~ streamDetailsEl:", streamDetailsEl)
 function searchMovie(event) {
   event.preventDefault();
   var title = document.getElementById("movieTitle").value;
-  console.log('hi');
   fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
     .then(function (response) {
       return response.json();
@@ -26,6 +26,7 @@ function searchMovie(event) {
       console.log("Error:", error);
     });
 }
+
 
 async function displayMovieDetails(movie) {
   if (movie.Response === "True") {
@@ -45,9 +46,11 @@ async function displayMovieDetails(movie) {
     await fetch(trailerUrl, { method: 'Get' })
       .then((reso) => reso.json())
       .then((dataTr) => {
-        console.log("🚀 ~ file: script.js:69 ~ .then ~ dataTr:", dataTr)
+        // console.log("🚀 ~ file: script.js:69 ~ .then ~ dataTr:", dataTr)
         trailer = dataTr;
       });
+
+
 
     var html = `
           <h2>${movie.Title}</h2>
@@ -64,7 +67,7 @@ async function displayMovieDetails(movie) {
         var linkEl = $("<a>", "<br>");
         linkEl.attr('href', streams[i].web_url);
         linkEl.text("Streamer: " + streams[i].name + "  Cost " + streams[i].price + "   |||   ");
-        console.log("🚀 ~ file: script.js:75 ~ displayMovieDetails ~ linkEl:", linkEl);
+        // console.log("🚀 ~ file: script.js:75 ~ displayMovieDetails ~ linkEl:", linkEl);
         streamDetailsEl.append(linkEl);
       }
     }
@@ -76,6 +79,8 @@ async function displayMovieDetails(movie) {
   }
 }
 function makeButtons(movie) {
+  let div = document.getElementById("ul")
+  div.innerHTML = ""
   let movieHistory = JSON.parse(localStorage.getItem("movie-history")) || []
   if (movieHistory.includes(movie) || !movie) {
     return
@@ -84,20 +89,48 @@ function makeButtons(movie) {
   let list = document.createElement("ul")
   for (var i = 0; i < movieHistory.length; i++) {
     // console.log(movieHistory[i])
+    // a = i;
     let li = document.createElement("li")
     let button = document.createElement("button")
+    button.setAttribute("id", "movie-" + i);
     button.textContent = movieHistory[i]
+    button.addEventListener("click",function(event){
+      a = event.target.textContent;
+console.log(event.target.textContent )
+findMovie();
+    })
     li.append(button)
     list.append(li)
   }
   console.log(list)
-  let div = document.getElementById("ul")
   div.append(list)
   // element.appendChild(list)
   localStorage.setItem("movie-history", JSON.stringify(movieHistory))
 
 
 }
+
+function findMovie() {
+  // event.preventDefault();
+  var title = a;
+  // console.log(a);
+  console.log(title)
+  fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log("🚀 ~ file: script.js:39 ~ data:", data)
+
+
+      displayMovieDetails(data);
+    })
+    .catch(function (error) {
+      console.log("Error:", error);
+    });
+}
+
+
 
 makeButtons()
 searchButEl.click(searchMovie);
