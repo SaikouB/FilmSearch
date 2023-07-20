@@ -25,10 +25,11 @@
       <div class="nav-wrapper row">
         <form>
           <div class="input-field">
-            <input id="movieTitle" type="search" class="materialize-textarea #212121 grey darken-4 orange-text orange-lighten-2" placeholder="Search movie" required></input>
+            <input id="movieTitle" type="search"
+              class="materialize-textarea #212121 grey darken-4 orange-text orange-lighten-2" placeholder="Search movie"
+              required></input>
             <label class="label-icon" for="search"><i class="material-icons ">search</i></label>
             <button id="searchButton" class="btn waves-effect waves-light">Search</button>
-            <div id="ul">Movie Search History</div>
           </div>
         </form>
       </div>
@@ -46,12 +47,23 @@
             <p id="movieDetails" class="center"><br></p>
           </div>
           <div class="card-action">
-            <a href="#stream" id="streamDetails">Streaming Options<br></a>
-            <a href="#trailer">Watch Trailer</a>
+            <a href="#stream" style="font-size: 175%;">Streaming Options:<br></a>
+            <div id="streamDetails">Please search a movie</div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="history row center">
+        <div class="col s6 m6 center">
+          <div class="card #b0bec5 #616161 grey darken-2">
+            <div class="card-content center white-text">
+              <h2 id="history">Movie Search History</h2>
+              <p id="ul" class="center"><br></p>
+              <div class="card-action"></div>
+              <button id="clear-btn" class="btn waves-effect waves-light">Clear History</button>
+            </div>
+          </div>
+        </div>
+      </div>
   </main>
 
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
