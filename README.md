@@ -33,3 +33,4 @@ https://github.com/SaikouB/FilmSearch
 For future development of this webpage, we plan to add the trailer for searched movie on our webpage right next to the poster and movie details. this will let the user view the trailer on our webpage and not through a third party webpage. We also plan to add a section that will recommend other movies to the user based on their search. The user will be able to click on a movie recommendation which will take them to a page where they can view that movies poster, details, trailer, and more movie recommendations.
 
 ## Webpage Screenshot
+<img width="1440" alt="Screen Shot 2023-07-20 at 6 19 08 PM" src="https://github.com/SaikouB/FilmSearch/assets/132960605/bbc1c5be-e3c1-4eb5-bd6f-6f1a6da34a5f">
