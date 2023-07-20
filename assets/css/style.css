@@ -28,5 +28,13 @@ li {
 
 button {
     width: 100%;
-    min-width: 100%;
+    max-width: 100%;
 }
+
+@media screen and (max-width: 720px) {
+    .movie {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 100%;
+    }
+  }
