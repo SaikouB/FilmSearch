@@ -1,6 +1,6 @@
 var imdb;
 var streams;
-var watchKey = "TNJADaKq3XlXMkATsndQthQewGSmwIfLUdLVrqez";
+var watchKey = "0jBJMeJpTDWH00cIRz9YGOb6YMIh9wyw8YceeayM";
 var apiKey = "5fe1dca8";
 var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
 var movieDetailsElement = document.getElementById("movieDetails");
@@ -115,5 +115,3 @@ clearBtnEl.click(function () {
     localStorage.clear()
     location.reload()
 })
-
-
