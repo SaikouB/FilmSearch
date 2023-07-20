@@ -83,15 +83,17 @@ async function displayMovieDetails(movie) {
 }
 function makeButtons(movie) {
   let movieHistory = JSON.parse(localStorage.getItem("movie-history")) || []
-  if (movieHistory.includes(movie) || !movie) {
-    return
+  if (movie && !movieHistory.includes(movie)) {
+    movieHistory.push(movie)
   }
+    $("#ul").empty()
+
   movieHistory.push(movie)
   let list = document.createElement("ul")
   for (var i = 0; i < movieHistory.length; i++) {
-    // console.log(movieHistory[i])
     let li = document.createElement("li")
     let button = document.createElement("button")
+    button.setAttribute("class", "movie-button");
     button.textContent = movieHistory[i]
     li.append(button)
     list.append(li)
@@ -99,8 +101,12 @@ function makeButtons(movie) {
   console.log(list)
   let div = document.getElementById("ul")
   div.append(list)
-  // element.appendChild(list)
   localStorage.setItem("movie-history", JSON.stringify(movieHistory))
+
+  $(".movie-button").click(function(event){
+    $("#movieTitle").val($(this).text())
+    searchMovie(event)
+  });
 
 
 }
