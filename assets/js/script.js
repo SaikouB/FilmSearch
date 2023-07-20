@@ -2,7 +2,7 @@ var imdb;
 var streams;
 var watchKey = "0jBJMeJpTDWH00cIRz9YGOb6YMIh9wyw8YceeayM";
 var apiKey = "5fe1dca8";
-var apiUrl = "http://www.omdbapi.com/?apikey=" + apiKey;
+var apiUrl = "https://www.omdbapi.com/?apikey=" + apiKey;
 var movieDetailsElement = document.getElementById("movieDetails");
 var searchButEl = $('#searchButton');
 var streamDetailsEl = $('#streamDetails');
@@ -88,7 +88,6 @@ function makeButtons(movie) {
         movieHistory.push(movie)
     }
     $("#ul").empty()
-
     let list = document.createElement("ul")
     for (var i = 0; i < movieHistory.length; i++) {
         let li = document.createElement("li")
