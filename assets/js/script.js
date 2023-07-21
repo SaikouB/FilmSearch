@@ -1,3 +1,4 @@
+// global variables 
 var imdb;
 var streams;
 var watchKey = "0jBJMeJpTDWH00cIRz9YGOb6YMIh9wyw8YceeayM";
@@ -8,31 +9,29 @@ var searchButEl = $('#searchButton');
 var streamDetailsEl = $('#streamDetails');
 var clearBtnEl = $("#clear-btn");
 console.log("🚀 ~ file: script.js:31 ~ streamDetailsEl:", streamDetailsEl)
-
+// search function 
 function searchMovie(event) {
     event.preventDefault();
+    // search movie by OMDB 
     movieDetailsElement.innerHTML = "";
     var title = document.getElementById("movieTitle").value;
-    console.log('hi');
     fetch(`${apiUrl}&t=${encodeURIComponent(title)}`)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log("🚀 ~ file: script.js:39 ~ data:", data)
-
-
             displayMovieDetails(data);
         })
         .catch(function (error) {
             console.log("Error:", error);
         });
 }
-
+// display results and search streaming platforms 
 async function displayMovieDetails(movie) {
     if (movie.Response === "True") {
 
-        // WACTHMODE 
+        // search streaming platforms by WACTHMODE 
         imdb = movie.imdbID;
         let url = 'https://api.watchmode.com/v1/title/' + imdb + '/sources/?apiKey=' + watchKey;
         await fetch(url, { method: 'Get' })
@@ -41,18 +40,14 @@ async function displayMovieDetails(movie) {
                 console.log(data);
                 streams = data;
             });
-
-
+        // search trailer 
         let trailerUrl = 'https://api.watchmode.com/v1/title/' + imdb + '/details/?apiKey=' + watchKey;
         await fetch(trailerUrl, { method: 'Get' })
             .then((reso) => reso.json())
             .then((dataTr) => {
-                console.log("🚀 ~ file: script.js:69 ~ .then ~ dataTr:", dataTr)
                 trailer = dataTr;
             });
-
-
-
+        // display movie description and trailer link 
         var html = `
           <h2>${movie.Title}</h2>
           <img src="${movie.Poster}" alt="${movie.Title} Poster">
@@ -63,14 +58,13 @@ async function displayMovieDetails(movie) {
           `;
         movieDetailsElement.innerHTML = html;
         streamDetailsEl.text("");
-
+        // display streaming links 
         for (var i = 0; i < streams.length; i++) {
             if (streams[i].format === "HD") {
                 if (streams[i].type === "rent") {
                     var linkEl = $("<a>", "<br>");
                     linkEl.attr('href', streams[i].web_url);
                     linkEl.text("| Streamer: " + streams[i].name + ",     Cost $" + streams[i].price + " |     ");
-                    console.log("🚀 ~ file: script.js:75 ~ displayMovieDetails ~ linkEl:", linkEl);
                     streamDetailsEl.append(linkEl);
                 }
             }
@@ -78,10 +72,9 @@ async function displayMovieDetails(movie) {
         makeButtons(movie.Title)
     } else {
         movieDetailsElement.innerHTML = `<p>${movie.Error}</p>`;
-
-
     }
 }
+// search history buttons 
 function makeButtons(movie) {
     let movieHistory = JSON.parse(localStorage.getItem("movie-history")) || []
     if (movie && !movieHistory.includes(movie)) {
@@ -100,15 +93,13 @@ function makeButtons(movie) {
     let div = document.getElementById("ul")
     div.append(list)
     localStorage.setItem("movie-history", JSON.stringify(movieHistory))
-
     $(".movie-button").click(function (event) {
         $("#movieTitle").val($(this).text())
         searchMovie(event)
     });
-
 }
-
 makeButtons()
+//  search buttons click listener 
 searchButEl.click(searchMovie);
 clearBtnEl.click(function () {
     localStorage.clear()
